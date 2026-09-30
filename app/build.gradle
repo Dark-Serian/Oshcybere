@@ -1,0 +1,50 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    namespace 'com.example.oshcyber'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.example.oshcyber"
+        minSdk 21
+        //noinspection OldTargetApi
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    implementation libs.easypermissions
+    implementation libs.okhttp
+    implementation 'androidx.core:core-ktx:1.17.0'
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    implementation libs.core
+    implementation libs.androidx.appcompat
+    testImplementation libs.junit
+    androidTestImplementation libs.junit.v115
+    androidTestImplementation 'androidx.test:runner:1.7.0'
+    androidTestImplementation libs.espresso.core
+}
